@@ -10,15 +10,18 @@
     <TextView
         android:id="@+id/eventTitle"
         android:layout_width="match_parent"
-        android:layout_height="84dp"
+        android:layout_height="85dp"
         android:background="#488F49"
+        android:drawableLeft="@drawable/ic_back_left"
         android:fontFamily="sans-serif-light"
         android:text="Event"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="36sp"
+        android:textSize="56sp"
         android:textStyle="bold"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-1dp"
+        tools:layout_editor_absoluteY="0dp" />
 
     <ImageView
         android:id="@+id/addPic"
