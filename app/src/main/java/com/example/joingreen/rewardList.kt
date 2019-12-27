@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : AppCompatActivity() {
+class rewardList : AppCompatActivity() {
 
     var mTitle =
         arrayOf("Soon Yi Lim", "Whatsapp", "Twitter", "Instagram", "Youtube")
@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
             myTitle.text = rTitle[position]
             myDescription.text = rDescription[position]
             myButton.setOnClickListener {
-                Toast.makeText(this@MainActivity, "Youtube Description", Toast.LENGTH_SHORT)
+                Toast.makeText(this@rewardList, "Youtube Description", Toast.LENGTH_SHORT)
                     .show()
             }
             return row
