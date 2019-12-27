@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    tools:context=".rewardList"
-    android:orientation="vertical">
+    tools:context=".MainActivity" >
 
     <TextView
         android:id="@+id/reward"
@@ -28,8 +26,11 @@
         tools:layout_editor_absoluteY="0dp" />
 
     <ListView
-        android:id="@+id/haha"
+        android:id="@+id/listview"
         android:layout_width="409dp"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="86dp" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
