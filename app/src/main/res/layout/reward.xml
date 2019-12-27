@@ -26,7 +26,7 @@
         tools:layout_editor_absoluteY="0dp" />
 
     <ListView
-        android:id="@+id/listview"
+        android:id="@+id/rewardListView"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         tools:ignore="MissingConstraints"

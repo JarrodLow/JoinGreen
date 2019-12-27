@@ -26,7 +26,7 @@ class rewardList : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.reward)
-        val listView:ListView = findViewById(R.id.haha)
+        val listView:ListView = findViewById(R.id.rewardListView)
         // now create an adapter class
         mButton = findViewById(R.id.retrieveBtn)
         val adapter = MyAdapter(this, mTitle, mDescription, images, mButton)
