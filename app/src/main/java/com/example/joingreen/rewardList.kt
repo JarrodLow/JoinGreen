@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 class rewardList : AppCompatActivity() {
 
     var mTitle =
-        arrayOf("Soon Yi Lim", "Whatsapp", "Twitter", "Instagram", "Youtube")
+        arrayOf("Facebook", "Whatsapp", "Twitter", "Instagram", "Youtube")
     var mDescription = arrayOf("Facebook Description", "Whatsapp Description", "Twitter Description", "Instagram Description", "Youtube Description")
     var images = intArrayOf(
         R.drawable.facebook,
@@ -52,7 +52,7 @@ class rewardList : AppCompatActivity() {
                 applicationContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
             val row = layoutInflater.inflate(R.layout.reward_list, parent, false)
             val images =
-                row.findViewById<ImageView>(R.id.imageView)
+                row.findViewById<ImageView>(R.id.rewardImageView)
             val myTitle = row.findViewById<TextView>(R.id.rewardName)
             val myDescription = row.findViewById<TextView>(R.id.rewardDescription)
             val myButton =
