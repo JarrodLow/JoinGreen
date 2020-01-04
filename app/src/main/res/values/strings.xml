@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">JoinGreen</string>
     <string name="AppName">JoinGreen</string>
+    <string name="reward">reward</string>
+    <string name="event">event</string>
+    <string name="user">user</string>
 </resources>

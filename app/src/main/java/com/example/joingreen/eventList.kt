@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.example.joingreen.R
 
 class eventList : AppCompatActivity() {
     var mTitle =
@@ -41,7 +42,9 @@ class eventList : AppCompatActivity() {
         var rDescription: Array<String>,
         var rImgs: IntArray,
         var rButton: Button?
-    ) : ArrayAdapter<String?>(context, R.layout.event_list, R.id.eventName, rTitle) {
+    ) : ArrayAdapter<String?>(context,
+        R.layout.event_list,
+        R.id.eventName, rTitle) {
         override fun getView(
             position: Int,
             convertView: View?,
