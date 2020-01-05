@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:background="#488F49"
         android:drawableLeft="@drawable/ic_menu"
+        android:drawableRight="@drawable/ic_add"
         android:fontFamily="sans-serif-light"
         android:text="Event"
         android:textAlignment="center"
