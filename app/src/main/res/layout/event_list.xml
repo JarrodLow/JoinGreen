@@ -5,23 +5,6 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
-    <TextView
-        android:id="@+id/event"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#488F49"
-        android:drawableLeft="@drawable/ic_menu"
-        android:fontFamily="sans-serif-light"
-        android:text="Event"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        android:paddingBottom="10dp"
-        android:paddingTop="10dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-1dp"
-        tools:layout_editor_absoluteY="0dp" />
 
     <RelativeLayout
         android:layout_width="match_parent"
