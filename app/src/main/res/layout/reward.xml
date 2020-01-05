@@ -29,6 +29,7 @@
         android:id="@+id/rewardListView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/reward"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="86dp" />
