@@ -20,15 +20,14 @@ class birthDateC : AppCompatActivity() {
 
     private fun birthDate1(view: View) {
         //get Input calendar
-        val birthDate = Calendar.getInstance()
+        val birthDate1 = Calendar.getInstance()
 
         //get current
-        val birthYear = birthDate.get(Calendar.YEAR)
-        val birthMonth = birthDate.get(Calendar.MONTH)
-        val birthDay = birthDate.get(Calendar.DAY_OF_MONTH)
+        val birthYear = birthDate1.get(Calendar.YEAR)
+        val birthMonth = birthDate1.get(Calendar.MONTH)
+        val birthDay = birthDate1.get(Calendar.DAY_OF_MONTH)
 
-        val dpd =
-            DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, year, month, day ->
+        val dpd = DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, year, month, day ->
                 birthDate.setText(day.toString() + "-" + month.toString() + "-" + year.toString())
             }, birthYear, birthMonth, birthDay)
         dpd.show()
