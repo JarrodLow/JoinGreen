@@ -8,28 +8,15 @@
     android:gravity="center"
     tools:context=".rewardList" >
 
-    <TextView
-        android:id="@+id/logoText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#488F49"
-        android:fontFamily="sans-serif-light"
-        android:text="ECO FUN"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/userName"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="match_parent"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="58dp"
+        android:layout_marginTop="60dp"
         android:layout_marginRight="16dp"
+        android:layout_marginBottom="630dp"
         android:background="@drawable/custom_edit_text_bg"
         android:drawableLeft="@drawable/ic_username"
         android:inputType="textPersonName"
