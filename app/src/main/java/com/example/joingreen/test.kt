@@ -8,6 +8,6 @@ class test :AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.event_detail)
+        setContentView(R.layout.create_event)
     }
 }
