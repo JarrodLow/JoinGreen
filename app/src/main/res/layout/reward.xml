@@ -19,7 +19,7 @@
         android:id="@+id/totalReward"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="10000"
+        android:text="10000"
         android:gravity="right"
         tools:layout_editor_absoluteY="20dp" />
 

@@ -65,15 +65,15 @@ class rewardList : AppCompatActivity() {
             myButton.setOnClickListener {
                 var rewardPoint:Int= Integer.parseInt(mPoints[position])
                 val ttlRewardPoint:TextView=findViewById(R.id.totalReward)
-                val str: String = ttlRewardPoint.text.toString()
+                var str:String=ttlRewardPoint.getText().toString()
                 var totalRewardPoint:Int=Integer.parseInt(str)
-                /*if(rewardPoint.compareTo(totalRewardPoint)<0)
+                if(rewardPoint.compareTo(totalRewardPoint)<0)
                 {
-                    //totalRewardPoint=totalRewardPoint-rewardPoint
-                   // ttlRewardPoint.setText(totalRewardPoint)
+                    totalRewardPoint=totalRewardPoint-rewardPoint
+                    ttlRewardPoint.setText(totalRewardPoint.toString())
                     Toast.makeText(this@rewardList, mTitle[position]+" reward claimed", Toast.LENGTH_SHORT)
                         .show()
-                }*/
+                }
 
             }
             return row
