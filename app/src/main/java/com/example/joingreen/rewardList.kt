@@ -12,7 +12,7 @@ class rewardList : AppCompatActivity() {
 
     var mTitle =
         arrayOf("Facebook", "Whatsapp", "Twitter", "Instagram", "Youtube")
-    var mDescription = arrayOf("Facebook Description", "Whatsapp Description", "Twitter Description", "Instagram Description", "Youtube Description")
+    var mPoints = arrayOf("100", "200", "300", "400", "500")
     var images = intArrayOf(
         R.drawable.facebook,
         R.drawable.whatsapp,
@@ -29,7 +29,8 @@ class rewardList : AppCompatActivity() {
         val listView:ListView = findViewById(R.id.rewardListView)
         // now create an adapter class
         mButton = findViewById(R.id.retrieveBtn)
-        val adapter = MyAdapter(this, mTitle, mDescription, images, mButton)
+
+        val adapter = MyAdapter(this, mTitle, mPoints, images, mButton)
         listView.setAdapter(adapter)
 
         // so item click is done now check list view
@@ -54,7 +55,7 @@ class rewardList : AppCompatActivity() {
             val images =
                 row.findViewById<ImageView>(R.id.rewardImageView)
             val myTitle = row.findViewById<TextView>(R.id.rewardName)
-            val myDescription = row.findViewById<TextView>(R.id.rewardDescription)
+            val myDescription = row.findViewById<TextView>(R.id.rewardPoints)
             val myButton =
                 row.findViewById<Button>(R.id.retrieveBtn)
             // now set our resources on views
@@ -62,8 +63,18 @@ class rewardList : AppCompatActivity() {
             myTitle.text = rTitle[position]
             myDescription.text = rDescription[position]
             myButton.setOnClickListener {
-                Toast.makeText(this@rewardList, "Youtube Description", Toast.LENGTH_SHORT)
-                    .show()
+                var rewardPoint:Int= Integer.parseInt(mPoints[position])
+                val ttlRewardPoint:TextView=findViewById(R.id.totalReward)
+                val str: String = ttlRewardPoint.text.toString()
+                var totalRewardPoint:Int=Integer.parseInt(str)
+                /*if(rewardPoint.compareTo(totalRewardPoint)<0)
+                {
+                    //totalRewardPoint=totalRewardPoint-rewardPoint
+                   // ttlRewardPoint.setText(totalRewardPoint)
+                    Toast.makeText(this@rewardList, mTitle[position]+" reward claimed", Toast.LENGTH_SHORT)
+                        .show()
+                }*/
+
             }
             return row
         }

@@ -7,6 +7,22 @@
     android:gravity="center"
     tools:context=".rewardList" >
 
+    <TextView
+        android:id="@+id/txtRewardPoint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Owned Reward Points: "
+        tools:layout_editor_absoluteY="20dp"
+        app:layout_constraintLeft_toLeftOf="@+id/totalReward"/>
+
+    <TextView
+        android:id="@+id/totalReward"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="10000"
+        android:gravity="right"
+        tools:layout_editor_absoluteY="20dp" />
+
     <ListView
         android:id="@+id/rewardListView"
         android:layout_width="match_parent"
@@ -14,6 +30,8 @@
         android:layout_marginTop="20dp"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="86dp" />
+        tools:layout_editor_absoluteY="86dp" >
+
+    </ListView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
