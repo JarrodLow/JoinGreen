@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "700382281770",
+    "firebase_url": "https://joingreen-ddc1d.firebaseio.com",
+    "project_id": "joingreen-ddc1d",
+    "storage_bucket": "joingreen-ddc1d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:700382281770:android:bac70c05409d567d574353",
+        "android_client_info": {
+          "package_name": "com.example.joingreen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "700382281770-mfkvt6tn0g3s4iai27c1blogjd3mfo6b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.joingreen",
+            "certificate_hash": "55ca7a9000456cc0f8e56d61dd452bb4f65c6291"
+          }
+        },
+        {
+          "client_id": "700382281770-vpmj7vs944o058fcfeqrc91f9efaehpe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQhbv-MQqs-r0-K7MVsThxTRQcwuHOTjU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "700382281770-vpmj7vs944o058fcfeqrc91f9efaehpe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

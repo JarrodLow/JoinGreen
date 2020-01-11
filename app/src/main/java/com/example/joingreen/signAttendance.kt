@@ -10,25 +10,25 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.attendance.*
 import kotlinx.android.synthetic.main.create_event.*
 import java.util.*
-import com.google.firebase.database.*
+//import com.google.firebase.database.*
 import kotlin.math.sign
 
 class signAttendance : AppCompatActivity() {
 
     lateinit var code : EditText
-    lateinit var createEventDB : DatabaseReference
+    //lateinit var createEventDB : DatabaseReference
     lateinit var eventClassList: MutableList<eventClass>
     lateinit var listView: ListView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.attendance)
-
+/*
         //Link database to retrieve
         eventClassList= mutableListOf()
-        createEventDB=FirebaseDatabase.getInstance().getReference("Event")
+       // createEventDB=FirebaseDatabase.getInstance().getReference("Event")
 
-        listView=findViewById(R.id.listView)
+       // listView=findViewById(R.id.listView)
 
 
         attdBtn.setOnClickListener {
@@ -55,7 +55,7 @@ class signAttendance : AppCompatActivity() {
                     }
                 }
             }
-        })
+        })*/
     }
     private fun sign(view: View){
         code = findViewById(R.id.attdText)

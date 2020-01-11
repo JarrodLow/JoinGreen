@@ -54,6 +54,12 @@ class rewardList : AppCompatActivity() {
         sharedPreferences = getPreferences(Context.MODE_PRIVATE)
 
 
+        val actionbar = supportActionBar
+        //set actionbar title
+        actionbar!!.title = "Rewards"
+        //set back button
+        actionbar.setDisplayHomeAsUpEnabled(true)
+        actionbar.setDisplayHomeAsUpEnabled(true)
 
         val adapter = MyAdapter(this, mTitle, mPoints, images, mButton)
         listView.setAdapter(adapter)
@@ -155,5 +161,10 @@ class rewardList : AppCompatActivity() {
     override fun onDestroy() {
         Log.d("rewardList", "onDestroy")
         super.onDestroy()
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

@@ -14,8 +14,8 @@
         android:layout_marginStart="224dp"
 
         android:text="Owned Reward Points: "
-        app:layout_constraintEnd_toStartOf="@+id/totalReward"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/totalReward"
@@ -24,9 +24,10 @@
         android:layout_marginStart="20dp"
         android:gravity="right"
         android:text="10000"
-        tools:layout_editor_absoluteX="371dp"
-        tools:layout_editor_absoluteY="0dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/txtRewardPoint"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
         android:id="@+id/rewardListView"
