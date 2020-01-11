@@ -49,10 +49,12 @@ class signAttendance : AppCompatActivity() {
                     //Loop all data from database into the list
                     for (h in p0.children) {
                         val event = h.getValue(eventClass::class.java)
-                        //if (code.text.toString() == event)//not done
-
-                            eventClassList.add(event!!)
+                        eventClassList.add(event!!)
                     }
+
+                    val adapter=attAdapter(this@signAttendance,R.layout.attendance,eventClassList)
+                    //after adapter what to show or do
+
                 }
             }
         })
