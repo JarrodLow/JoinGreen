@@ -6,7 +6,6 @@ import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
-import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.create_event.*
 import java.util.*
 
@@ -41,18 +40,18 @@ class createEvent : AppCompatActivity() {
 
    /* private fun addEvent(view: View){
         //save all user entered details
-        //val eventPhoto=imageViewEventPhoto.
+        val eventPhoto=imageViewEventPhoto.
         val eventCreator=username;
-        val eventName=editTextEventName.text.toString()
-        val eventDate=editTextEventDate.text.toString()
+        val eventName=editTextEventName.text.toString().trim()
+        val eventDate=editTextEventDate.text.toString().trim()
         val eventStartTime=editTextStartTime.text.toString()
         val eventEndTime=editTextEndTime.text.toString()
         val eventLocation=editTextLocation.text.toString()
         val attendance=(100000..999999).random()
 
         //link firebase
-        val createEventDB=FirebaseDatabase.getInstance().getReference("Event")
-        val eventId=createEventDB.push().key.toString()
+        val createEventDB=FireBaseDatabase.getInstance().getReference("Event") //firebase havent link
+        val eventId=createEventDB.push().key
 
         if(eventCreator==null && eventName==null && eventDate==null && eventStartTime==null && eventEndTime==null && eventLocation==null){
             Toast.makeText(applicationContext,"Please fill in all required fields", Toast.LENGTH_LONG).show()
