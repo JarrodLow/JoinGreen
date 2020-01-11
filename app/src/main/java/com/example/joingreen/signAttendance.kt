@@ -28,7 +28,7 @@ class signAttendance : AppCompatActivity() {
         eventClassList= mutableListOf()
         createEventDB=FirebaseDatabase.getInstance().getReference("Event")
 
-        listView=findViewById(R.id.listView)
+        listView=findViewById(R.id.)
 
 
         attdBtn.setOnClickListener {

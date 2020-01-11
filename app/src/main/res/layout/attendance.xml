@@ -32,5 +32,14 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="60dp" />
 
+    <TextView
+        android:id="@+id/textViewAttendance"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="114dp"
+        tools:layout_editor_absoluteY="267dp"
+        tools:ignore="MissingConstraints" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
