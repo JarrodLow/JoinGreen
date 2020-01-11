@@ -13,6 +13,12 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.joingreen.ui.event.EventViewModel
 import kotlinx.android.synthetic.main.reward.*
+import android.content.Intent
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+
+
 
 class rewardList : AppCompatActivity() {
 
@@ -95,6 +101,11 @@ class rewardList : AppCompatActivity() {
                         .show()
 
                 }
+                else
+                {
+                    Toast.makeText(this@rewardList, "Insufficient reward points", Toast.LENGTH_SHORT)
+                        .show()
+                }
 
             }
             return row
@@ -105,7 +116,8 @@ class rewardList : AppCompatActivity() {
         Log.d("rewardList", "onStart")
         with(sharedPreferences.edit()) {
             //call database value here
-            putInt(getString(R.string.totalPoints), 100000)
+            val rewardPoint=intent.getIntExtra("RewardPoint", 0)
+            putInt(getString(R.string.totalPoints), rewardPoint)
             commit()
         }
         super.onStart()
