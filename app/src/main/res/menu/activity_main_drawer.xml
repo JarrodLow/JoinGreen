@@ -17,6 +17,16 @@
             android:id="@+id/nav_reward"
             android:icon="@drawable/ic_menu_reward"
             android:title="@string/menu_reward" />
+
+        <item
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/ic_build_black_24dp"
+            android:title="@string/menu_setting" />
+
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_logout_black_24dp"
+            android:title="@string/menu_logout"/>
     </group>
 
     <item android:title="Communicate">
