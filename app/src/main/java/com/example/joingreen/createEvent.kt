@@ -42,7 +42,7 @@ class createEvent : AppCompatActivity() {
    /* private fun addEvent(view: View){
         //save all user entered details
         //val eventPhoto=imageViewEventPhoto.
-        val eventCreator=username;
+        val eventCreator="username";
         val eventName=editTextEventName.text.toString()
         val eventDate=editTextEventDate.text.toString()
         val eventStartTime=editTextStartTime.text.toString()
@@ -54,7 +54,7 @@ class createEvent : AppCompatActivity() {
         val createEventDB=FirebaseDatabase.getInstance().getReference("Event")
         val eventId=createEventDB.push().key.toString()
 
-        if(eventCreator==null && eventName==null && eventDate==null && eventStartTime==null && eventEndTime==null && eventLocation==null){
+        if(eventCreator==null || eventName==null || eventDate==null || eventStartTime==null || eventEndTime==null || eventLocation==null){
             Toast.makeText(applicationContext,"Please fill in all required fields", Toast.LENGTH_LONG).show()
             return
         }

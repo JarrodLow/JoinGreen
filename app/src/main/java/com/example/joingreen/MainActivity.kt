@@ -24,5 +24,6 @@ class MainActivity : AppCompatActivity() {
         setTitle("JoinGreen")
         setSupportActionBar(findViewById(R.id.toolbar))
 
-    }
+
+
 }

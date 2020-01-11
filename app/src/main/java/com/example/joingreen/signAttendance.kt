@@ -23,12 +23,13 @@ class signAttendance : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.attendance)
-/*
+
         //Link database to retrieve
         eventClassList= mutableListOf()
        // createEventDB=FirebaseDatabase.getInstance().getReference("Event")
 
-       // listView=findViewById(R.id.listView)
+        listView=findViewById(R.id.)
+        listView=findViewById(R.id.listView)
 
 
         attdBtn.setOnClickListener {
@@ -49,13 +50,15 @@ class signAttendance : AppCompatActivity() {
                     //Loop all data from database into the list
                     for (h in p0.children) {
                         val event = h.getValue(eventClass::class.java)
-                        if (code.text.toString() == event)//not done
-
-                            eventClassList.add(event!!)
+                        eventClassList.add(event!!)
                     }
+
+                    val adapter=attAdapter(this@signAttendance,R.layout.attendance,eventClassList)
+                    //after adapter what to show or do
+
                 }
             }
-        })*/
+        })
     }
     private fun sign(view: View){
         code = findViewById(R.id.attdText)
