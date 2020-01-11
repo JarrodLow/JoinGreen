@@ -28,7 +28,7 @@ class signAttendance : AppCompatActivity() {
         eventClassList= mutableListOf()
         createEventDB=FirebaseDatabase.getInstance().getReference("Event")
 
-        listView=findViewById(R.id.)
+        //listView=findViewById(R.id.)
 
 
         attdBtn.setOnClickListener {
@@ -49,7 +49,7 @@ class signAttendance : AppCompatActivity() {
                     //Loop all data from database into the list
                     for (h in p0.children) {
                         val event = h.getValue(eventClass::class.java)
-                        if (code.text.toString() == event)//not done
+                        //if (code.text.toString() == event)//not done
 
                             eventClassList.add(event!!)
                     }
