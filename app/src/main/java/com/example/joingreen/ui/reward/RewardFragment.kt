@@ -33,7 +33,7 @@ class RewardFragment : Fragment() {
 
         val root = inflater.inflate(R.layout.reward_home, container, false)
         val txtrewardPointHome:TextView=root.findViewById(R.id.txtrewardPointHome)
-        txtrewardPointHome.setText(rewardhomeviewModel.toString())
+        txtrewardPointHome.setText(rewardhomeviewModel.rewardPoints.toString())
         val textView: TextView = root.findViewById(R.id.txtrewardPointHome)
 
         rewardhomeviewModel.rewardPoints.observe(this, Observer {

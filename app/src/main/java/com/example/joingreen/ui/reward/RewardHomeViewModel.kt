@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 
 class RewardHomeViewModel : ViewModel() {
 
-    val rewardPoints =MutableLiveData<Any>()
+    val rewardPoints =MutableLiveData<Int>()
 
     fun setrewardPoints(points:Int){
         rewardPoints.setValue(points)

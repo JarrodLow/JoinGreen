@@ -33,13 +33,13 @@ class createEvent : AppCompatActivity() {
         editTextLocation=findViewById(R.id.location)
 
         createEvent.setOnClickListener {
-            addEvent(it)
+           // addEvent(it)
             clearForm(it)
         }
 
     }
 
-    private fun addEvent(view: View){
+   /* private fun addEvent(view: View){
         //save all user entered details
         //val eventPhoto=imageViewEventPhoto.
         val eventCreator="username";
@@ -67,7 +67,7 @@ class createEvent : AppCompatActivity() {
             Toast.makeText(applicationContext,"Event has been created successfully", Toast.LENGTH_LONG).show()
         }
 
-    }
+    }*/
 
     private fun clearForm(view: View){
         addPic.setImageBitmap(null)
