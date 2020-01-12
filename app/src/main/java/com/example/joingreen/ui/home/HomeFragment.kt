@@ -9,6 +9,8 @@ import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -34,6 +36,9 @@ class HomeFragment : Fragment() {
     private var database: FirebaseDatabase? = null
     private var auth: FirebaseAuth? = null
 
+     lateinit var name :String
+      lateinit var  rp:String
+      lateinit var  addre:String
     private lateinit var homeViewModel: HomeViewModel
 
     private val currentUser = FirebaseAuth.getInstance().currentUser
@@ -87,8 +92,11 @@ class HomeFragment : Fragment() {
 
     private fun retrieveUserProfile()
     {
+
+
         database = FirebaseDatabase.getInstance()
         databaseReference = database!!.reference!!.child(("/users"))
+
 
         //retrieve current user data
         auth = FirebaseAuth.getInstance()
@@ -98,24 +106,26 @@ class HomeFragment : Fragment() {
 
         UserReferences.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                val name = snapshot.child("userName").value as String
-                userName.setText(name)
+
+                 name = snapshot.child("userName").value as String
+                userName!!.text = name
+
                 val url = snapshot.child("profileImageUrl").value as String
                 Glide.with(this@HomeFragment).load(url).into(profilePic)
 
 
-                val rp = snapshot.child("creditpoint").value as String
-                creditpoint.setText(rp)
+                 rp = snapshot.child("creditpoint").value as String
+                creditpoint!!.text = rp
 
-                val addre = snapshot.child("address").value as String
-                address.setText(addre)
+                 addre = snapshot.child("address").value as String
+                address!!.text = addre
 
             }
             override fun onCancelled(databaseError: DatabaseError) {}
         })
 
         val email = User.email as String
-        profileEmail.setText(email)
+        profileEmail.text = email
 
     }
 
