@@ -16,7 +16,7 @@ class eventAdapter(val mCtx: Context,val layoutResId: Int,val eventList: List<ev
 
 
         val layoutInflater: LayoutInflater = LayoutInflater.from(mCtx)
-        val view: View = layoutInflater.inflate(layoutResId, null)
+        val view: View = layoutInflater.inflate(layoutResId,null)
 
         val textViewEventName = view.findViewById<TextView>(R.id.eventName)
         val textViewEventCreator = view.findViewById<TextView>(R.id.eventCreator)
@@ -37,3 +37,4 @@ class eventAdapter(val mCtx: Context,val layoutResId: Int,val eventList: List<ev
         return view
     }
 }
+

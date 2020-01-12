@@ -58,7 +58,7 @@ class RewardFragment : Fragment() {
         val btnClaimReward: TextView = root.findViewById(R.id.btnClaimReward)
         btnClaimReward.setOnClickListener {
             val intent = Intent(context, rewardList::class.java)
-            intent.putExtra("RewardPoint",rewardPoint)
+
             startActivity(intent)
         }
 

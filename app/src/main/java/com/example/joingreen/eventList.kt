@@ -77,17 +77,17 @@
 package com.example.joingreen
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.util.EventLog
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.example.joingreen.ui.home.HomeViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.login.*
+
 
 class eventList : AppCompatActivity() {
 
@@ -107,24 +107,43 @@ class eventList : AppCompatActivity() {
     lateinit var textViewEventLocation: TextView
     lateinit var textViewAttendance: TextView
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
-        setContentView(R.layout.event)
 
-        //link database
+    lateinit var rewardViewModel: RewardViewModel
+    lateinit var sharedPreferences : SharedPreferences
+
+    var array= arrayOfNulls<String>(10)
+
+    var mPoints = arrayOf("1000", "1500", "1500", "1500", "2000")
+    var images = intArrayOf(
+        R.drawable.reward1,
+        R.drawable.reward2,
+        R.drawable.reward3,
+        R.drawable.reward4,
+        R.drawable.reward5
+
+    )
+
+
+    private var databaseReference: DatabaseReference? = null
+    private var database: FirebaseDatabase? = null
+
+
+    private lateinit var homeViewModel: HomeViewModel
+
+    private val currentUser = FirebaseAuth.getInstance().currentUser
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.create_event)
+        val listView:ListView = findViewById(R.id.eventListView)
+        // now create an adapter class
+
+
+        //retrieve current user data
         eventList= mutableListOf()
         showEventDB=FirebaseDatabase.getInstance().getReference("Event")
+        //retrieve current user data
 
-
-
-
-        textViewEventName=findViewById(R.id.eventName)
-        textViewEventCreator=findViewById(R.id.eventCreator)
-        textViewEventDate=findViewById(R.id.eventDate)
-        textViewEventTime=findViewById(R.id.eventTime)
-        textViewEventLocation=findViewById(R.id.location)
-        textViewAttendance=findViewById(R.id.attdCode)
-        showAllEventList=findViewById(R.id.eventListView)
 
 
 
@@ -135,26 +154,61 @@ class eventList : AppCompatActivity() {
 
             override fun onDataChange(p0: DataSnapshot) {
 
-                if(p0!!.exists()){
 
+                        eventList.clear()
                     for (h in p0.children){
                         val event=h.getValue(eventClass::class.java)
                         eventList.add(event!!)
-                    }
 
-                    val adapter = eventAdapter(this@eventList,R.layout.create_event,eventList)
-                    showAllEventList.adapter=adapter
                 }
+                val adapter = eventAdapter(applicationContext,R.layout.event_list,eventList)
+                listView.adapter=adapter
             }
         })
 
 
-        joinButton.setOnClickListener{
-            joinEvent()
+
+
+
+
+
+        // so item click is done now check list view
+    }
+
+
+    internal inner class MyAdapter(
+        context: Context,
+        var rTitle: Array<String>
+
+
+    ) : ArrayAdapter<String?>(context, R.layout.event_list,rTitle) {
+        override fun getView(
+            position: Int,
+            convertView: View?,
+            parent: ViewGroup
+        ): View {
+
+            val layoutInflater =
+                applicationContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+            val row = layoutInflater.inflate(R.layout.event_list, parent, false)
+            val textViewEventName = row.findViewById<TextView>(R.id.eventName)
+            val textViewEventCreator = row.findViewById<TextView>(R.id.eventCreator)
+            val textViewEventDate = row.findViewById<TextView>(R.id.eventDate)
+            val textViewEventTime = row.findViewById<TextView>(R.id.eventTime)
+            val textViewEventLocation = row.findViewById<TextView>(R.id.location)
+            val textViewAttCode = row.findViewById<TextView>(R.id.attdCode)
+            // now set our resources on views
+
+
+
+
+
+            return row
         }
 
-
     }
+
+
 
     private fun joinEvent(){
 
