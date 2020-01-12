@@ -20,6 +20,7 @@ class attAdapter(val mCtx: Context,val layoutResId: Int,val eventList: List<even
 
 
 
+
         val editTextAttn = view.findViewById<EditText>(R.id.attdText)
 
         val getEvent = eventList[position]
