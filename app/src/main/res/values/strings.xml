@@ -15,4 +15,5 @@
     <string name="menu_event">Event</string>
     <string name="totalPoints">totalPoints</string>
     <string name="menu_reward">Reward</string>
+    <string name="forgotPassword">Forgot Password</string>
 </resources>
