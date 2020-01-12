@@ -195,6 +195,5 @@ class rewardList : AppCompatActivity() {
         onBackPressed()
         return true
     }
-    class User(val uid: String, val profileImageUrl: String,val userName:String,val LoginId: String, val address :String, val creditpoint: String)
 
 }
