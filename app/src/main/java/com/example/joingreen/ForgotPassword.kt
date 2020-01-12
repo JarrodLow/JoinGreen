@@ -25,6 +25,12 @@ class ForgotPassword : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.forgetpassword)
 
+        val actionbar = supportActionBar
+        //set actionbar title
+        actionbar!!.title = "Forget Password"
+        //set back button
+        actionbar.setDisplayHomeAsUpEnabled(true)
+        actionbar.setDisplayHomeAsUpEnabled(true)
         initialise()
     }
 
@@ -40,6 +46,11 @@ class ForgotPassword : AppCompatActivity() {
 
         backLogin!!.setOnClickListener{startActivity(Intent(this,MainActivity::class.java))}
 
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
     private fun Resetpassword(){
