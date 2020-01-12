@@ -87,13 +87,13 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.login.*
 
 class eventList : AppCompatActivity() {
 
     //Firebase authentication
-    private var mDatabaseReference: DatabaseReference?=null
-    private var mDatabase: FirebaseDatabase?=null
-    private var mAuth: FirebaseAuth?=null
+
+    private var auth: FirebaseAuth?=null
 
     lateinit var showEventDB: DatabaseReference
     lateinit var eventList: MutableList<eventClass>
@@ -114,6 +114,8 @@ class eventList : AppCompatActivity() {
         //link database
         eventList= mutableListOf()
         showEventDB=FirebaseDatabase.getInstance().getReference("Event")
+
+
 
 
         textViewEventName=findViewById(R.id.eventName)
@@ -140,7 +142,7 @@ class eventList : AppCompatActivity() {
                         eventList.add(event!!)
                     }
 
-                    val adapter = eventAdapter(this@eventList,R.layout.event_list,eventList)
+                    val adapter = eventAdapter(this@eventList,R.layout.create_event,eventList)
                     showAllEventList.adapter=adapter
                 }
             }
@@ -155,13 +157,28 @@ class eventList : AppCompatActivity() {
     }
 
     private fun joinEvent(){
+
+        var database :DatabaseReference = FirebaseDatabase.getInstance().reference.child("/users")
+        auth = FirebaseAuth.getInstance()
+        val User = auth!!.currentUser
+        val UserReference = database!!.child(User!!.uid)
+        var userName=""
+
+        UserReference.addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(p0: DataSnapshot) {
+                val nameHolder = p0.child("userName").value as String
+                userName = nameHolder
+            }
+
+            override fun onCancelled(p0: DatabaseError) {
+            }
+        })
+
         val joinEventName=textViewEventName.text.toString()
-        //how to get user name
-        val username="username"
 
         val userJoinEventDB=FirebaseDatabase.getInstance().getReference("JoinedUser")
         val joinedUserId=userJoinEventDB.push().key.toString()
-        val joinedEventUser=joinedUser(joinedUserId,joinEventName,username)
+        val joinedEventUser=joinedUser(joinedUserId,joinEventName,userName)
 
         userJoinEventDB.child(joinedUserId).setValue(joinedEventUser).addOnCanceledListener {
             Toast.makeText(applicationContext,"Joined Successfully",Toast.LENGTH_LONG).show()
