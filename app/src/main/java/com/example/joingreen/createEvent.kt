@@ -6,10 +6,8 @@ import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
-import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.create_event.*
-import com.google.firebase.auth.FirebaseAuth
 import java.util.*
 
 class createEvent : AppCompatActivity() {
@@ -21,10 +19,6 @@ class createEvent : AppCompatActivity() {
     lateinit var editTextEndTime : EditText
     lateinit var editTextLocation : EditText
     lateinit var imageViewEventPhoto: ImageView
-
-    private var mDatabaseReference: DatabaseReference? = null
-    private var mDatabase: FirebaseDatabase? = null
-    private var mAuth:FirebaseAuth? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +39,7 @@ class createEvent : AppCompatActivity() {
 
     }
 
-    private fun addEvent(view: View){
+   /* private fun addEvent(view: View){
         //save all user entered details
         //val eventPhoto=imageViewEventPhoto.
         val eventCreator="username";
@@ -73,7 +67,7 @@ class createEvent : AppCompatActivity() {
             Toast.makeText(applicationContext,"Event has been created successfully", Toast.LENGTH_LONG).show()
         }
 
-    }
+    }*/
 
     private fun clearForm(view: View){
         addPic.setImageBitmap(null)
