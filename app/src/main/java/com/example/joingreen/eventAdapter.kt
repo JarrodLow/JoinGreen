@@ -18,8 +18,6 @@ class eventAdapter(val mCtx: Context,val layoutResId: Int,val eventList: List<ev
         val layoutInflater: LayoutInflater = LayoutInflater.from(mCtx)
         val view: View = layoutInflater.inflate(layoutResId, null)
 
-        //image havent
-        //val imageViewEventPhoto=view.findViewById<ImageView>(R.id.eventImageView)
         val textViewEventName = view.findViewById<TextView>(R.id.eventName)
         val textViewEventCreator = view.findViewById<TextView>(R.id.eventCreator)
         val textViewEventDate = view.findViewById<TextView>(R.id.eventDate)
@@ -29,7 +27,6 @@ class eventAdapter(val mCtx: Context,val layoutResId: Int,val eventList: List<ev
 
         val event = eventList[position]
 
-        //imageViewEventPhoto=
         textViewEventName.text=event.eventName
         textViewEventCreator.text=event.creator
         textViewEventDate.text=event.eventDate

@@ -85,8 +85,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 
 class eventList : AppCompatActivity() {
 
@@ -102,7 +101,6 @@ class eventList : AppCompatActivity() {
     lateinit var textViewEventTime: TextView
     lateinit var textViewEventLocation: TextView
     lateinit var textViewAttendance: TextView
-    lateinit var imageViewEventPhoto: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
@@ -121,11 +119,33 @@ class eventList : AppCompatActivity() {
         textViewAttendance=findViewById(R.id.attdCode)
         showAllEventList=findViewById(R.id.eventListView)
 
-        val adapter = eventAdapter(this@eventList,R.layout.event_list,eventList)
-        showAllEventList.adapter=adapter
+
+
+        showEventDB.addValueEventListener(object : ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+
+                if(p0!!.exists()){
+
+                    for (h in p0.children){
+                        val event=h.getValue(eventClass::class.java)
+                        eventList.add(event!!)
+                    }
+
+                    val adapter = eventAdapter(this@eventList,R.layout.event_list,eventList)
+                    showAllEventList.adapter=adapter
+                }
+            }
+        })
+
+        var haha=findViewById<TextView>(R.id.haha)
+        haha.text="hahahaha"
 
         joinButton.setOnClickListener{
-            joinEvent();
+            joinEvent()
         }
 
 
@@ -138,7 +158,7 @@ class eventList : AppCompatActivity() {
 
         val userJoinEventDB=FirebaseDatabase.getInstance().getReference("JoinedUser")
         val joinedUserId=userJoinEventDB.push().key.toString()
-        val joinedEventUser=joinedUser(joinedUserId,textViewEventName.text.toString(),username)
+        val joinedEventUser=joinedUser(joinedUserId,joinEventName,username)
 
         userJoinEventDB.child(joinedUserId).setValue(joinedEventUser).addOnCanceledListener {
             Toast.makeText(applicationContext,"Joined Successfully",Toast.LENGTH_LONG).show()

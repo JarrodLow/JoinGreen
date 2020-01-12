@@ -10,7 +10,7 @@
         android:id="@+id/attdText"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:hint="Input Attendace Code Here"
+        android:hint="Input Attendance Code Here"
         android:inputType="numberDecimal"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"

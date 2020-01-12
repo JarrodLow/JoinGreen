@@ -15,7 +15,6 @@ class EventFragment : Fragment() {
 
     private lateinit var eventviewModel: EventViewModel
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
