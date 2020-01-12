@@ -21,18 +21,6 @@
         app:srcCompat="@drawable/ic_account_circle_green_24dp"
         tools:ignore="MissingConstraints,VectorDrawableCompat" />
 
-    <Button
-        android:id="@+id/Retrieveimg"
-        android:layout_width="150dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="16dp"
-        android:background="@color/colorPrimary"
-        android:text="Retrieve"
-        android:textColor="#FFFFFF"
-        app:layout_constraintTop_toBottomOf="@+id/profilePic"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="131dp" />
-
     <EditText
         android:id="@+id/userName"
         android:layout_width="match_parent"
@@ -46,14 +34,14 @@
         android:textSize="22dp"
         android:textStyle="bold"
         android:paddingStart="15dp"
-        app:layout_constraintTop_toBottomOf="@id/Retrieveimg"
+        app:layout_constraintTop_toBottomOf="@id/profilePic"
         tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/profileEmail"
+    <EditText
+        android:id="@+id/bio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email"
+        android:hint="Bio"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
@@ -65,16 +53,16 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/profilePass"
+        android:id="@+id/birthDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Password"
+        android:hint="Birth Date"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:textColor="#000000"
         android:paddingStart="15dp"
-        app:layout_constraintTop_toBottomOf="@+id/profileEmail"
+        app:layout_constraintTop_toBottomOf="@+id/bio"
         tools:ignore="MissingConstraints" />
 
     <EditText
@@ -89,22 +77,7 @@
         android:textSize="22dp"
         android:textStyle="bold"
         android:paddingStart="15dp"
-        app:layout_constraintTop_toBottomOf="@+id/profilePass"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/creditpoint"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="creditpoint"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        android:textColor="#000000"
-        android:textSize="22dp"
-        android:textStyle="bold"
-        android:paddingStart="15dp"
-        app:layout_constraintTop_toBottomOf="@+id/address"
+        app:layout_constraintTop_toBottomOf="@+id/birthDate"
         tools:ignore="MissingConstraints" />
 
     <Button
