@@ -53,13 +53,11 @@ class eventList : AppCompatActivity() {
             val images =
                 row.findViewById<ImageView>(R.id.eventImageView)
             val myTitle = row.findViewById<TextView>(R.id.eventName)
-            val myDescription = row.findViewById<TextView>(R.id.eventDescription)
             val myButton =
                 row.findViewById<Button>(R.id.joinBtn)
             // now set our resources on views
             images.setImageResource(rImgs[position])
             myTitle.text = rTitle[position]
-            myDescription.text = rDescription[position]
             myButton.setOnClickListener {
                 Toast.makeText(this@eventList, "Youtube Description", Toast.LENGTH_SHORT)
                     .show()
