@@ -36,7 +36,7 @@ class eventList : AppCompatActivity() {
         eventList= mutableListOf()
         showEventDB=FirebaseDatabase.getInstance().getReference("Event")
 
-
+        //havent set image view
         textViewEventName=findViewById(R.id.eventName)
         textViewEventCreator=findViewById(R.id.eventCreator)
         textViewEventDate=findViewById(R.id.eventDate)
@@ -52,7 +52,6 @@ class eventList : AppCompatActivity() {
             joinEvent();
         }
 
-
     }
 
     private fun joinEvent(){
@@ -62,9 +61,9 @@ class eventList : AppCompatActivity() {
 
         val userJoinEventDB=FirebaseDatabase.getInstance().getReference("JoinedUser")
         val joinedUserId=userJoinEventDB.push().key.toString()
-        val joinedEventUser=joinedUser(joinedUserId,textViewEventName.text.toString(),username)
+        val joinedEventUser=joinedUser(joinedUserId,joinEventName,username)
 
-        userJoinEventDB.child(joinedUserId).setValue(joinedEventUser).addOnCanceledListener {
+        userJoinEventDB.child(joinedUserId).setValue(joinedEventUser).addOnCompleteListener() {
             Toast.makeText(applicationContext,"Joined Successfully",Toast.LENGTH_LONG).show()
         }
     }
