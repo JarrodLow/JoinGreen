@@ -31,6 +31,13 @@ class RegisterUser : AppCompatActivity() {
             performRegister()
         }
 
+        val actionbar = supportActionBar
+        //set actionbar title
+        actionbar!!.title = "Register an account"
+        //set back button
+        actionbar.setDisplayHomeAsUpEnabled(true)
+        actionbar.setDisplayHomeAsUpEnabled(true)
+
         cancel.setOnClickListener {
             Toast.makeText(this, "Getting image", Toast.LENGTH_SHORT).show()
 
@@ -149,6 +156,11 @@ class RegisterUser : AppCompatActivity() {
                 Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
 
             }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
 }
