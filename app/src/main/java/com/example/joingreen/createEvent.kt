@@ -6,7 +6,8 @@ import android.view.View
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.create_event.*
 import java.util.*
 
@@ -18,6 +19,10 @@ class createEvent : AppCompatActivity() {
     lateinit var editTextStartTime : EditText
     lateinit var editTextEndTime : EditText
     lateinit var editTextLocation : EditText
+
+    private var mDatabaseReference: DatabaseReference?=null
+    private var mDatabase: FirebaseDatabase?=null
+    private var mAuth: FirebaseAuth?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +54,24 @@ class createEvent : AppCompatActivity() {
         //link firebase
         val createEventDB=FirebaseDatabase.getInstance().getReference("Event")
         val eventId=createEventDB.push().key.toString()
+
+        mDatabase= FirebaseDatabase.getInstance()
+        mDatabaseReference=mDatabase!!.reference!!.child("Event")
+        mAuth=FirebaseAuth.getInstance()
+
+        val mUser=mAuth!!.currentUser
+        val mUserReference=mDatabaseReference!!.child(mUser!!.uid)
+
+        mUserReference.addValueEventListener(object : ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+                val eventCreator=p0.child("Event").value as String
+            }
+        })
+
 
         if(eventCreator=="" || eventName=="" || eventDate=="" || eventStartTime=="" || eventEndTime=="" || eventLocation==""){
             Toast.makeText(applicationContext,"Please fill in all required fields", Toast.LENGTH_LONG).show()

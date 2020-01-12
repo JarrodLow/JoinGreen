@@ -85,10 +85,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
 class eventList : AppCompatActivity() {
 
+    //Firebase authentication
+    private var mDatabaseReference: DatabaseReference?=null
+    private var mDatabase: FirebaseDatabase?=null
+    private var mAuth: FirebaseAuth?=null
 
     lateinit var showEventDB: DatabaseReference
     lateinit var eventList: MutableList<eventClass>
@@ -141,8 +146,6 @@ class eventList : AppCompatActivity() {
             }
         })
 
-        var haha=findViewById<TextView>(R.id.haha)
-        haha.text="hahahaha"
 
         joinButton.setOnClickListener{
             joinEvent()

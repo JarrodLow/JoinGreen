@@ -22,11 +22,13 @@ class EventFragment : Fragment() {
     ): View? {
         eventviewModel =
             ViewModelProviders.of(this).get(EventViewModel::class.java)
+
+
         val root = inflater.inflate(R.layout.event, container, false)
-        val textView: ListView = root.findViewById(R.id.eventListView)
-       /* eventviewModel.text.observe(this, Observer {
-            textView.= it
-        })*/
+        val textView: TextView = root.findViewById(R.id.eventListView)
+        eventviewModel.text.observe(this, Observer {
+            textView.text=it
+        })
         return root
     }
 
