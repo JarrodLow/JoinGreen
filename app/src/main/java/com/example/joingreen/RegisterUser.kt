@@ -31,6 +31,13 @@ class RegisterUser : AppCompatActivity() {
             performRegister()
         }
 
+        val actionbar = supportActionBar
+        //set actionbar title
+        actionbar!!.title = "Register an account"
+        //set back button
+        actionbar.setDisplayHomeAsUpEnabled(true)
+        actionbar.setDisplayHomeAsUpEnabled(true)
+
         cancel.setOnClickListener {
             Toast.makeText(this, "Getting image", Toast.LENGTH_SHORT).show()
 
@@ -137,7 +144,7 @@ class RegisterUser : AppCompatActivity() {
         val uid = FirebaseAuth.getInstance().uid ?: ""
         val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
 
-        val user = User(uid,profileImageUrl,userName.text.toString(),email.text.toString(),password.text.toString(),address.text.toString(),creditpoint = "0")
+        val user = User(uid,profileImageUrl,userName.text.toString(),email.text.toString(),address.text.toString(),creditpoint = "0")
 
         ref.setValue(user)
             .addOnSuccessListener {
@@ -151,5 +158,10 @@ class RegisterUser : AppCompatActivity() {
             }
     }
 
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
+    }
+
 }
-class User(val uid: String, val profileImageUrl: String,val userName:String,val LoginId: String,val password:String, val address :String , val creditpoint: String)
+class User(val uid: String, val profileImageUrl: String,val userName:String,val LoginId: String, val address :String, val creditpoint: String)

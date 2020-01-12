@@ -24,6 +24,7 @@ import android.widget.Toast
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
@@ -49,10 +50,17 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
+        auth = FirebaseAuth.getInstance()
 
         initialse()
 
 
+    }
+    override fun onStart()
+    {
+        super.onStart()
+        val currentUser = auth!!.currentUser
+        updateUI(currentUser)
     }
 
     private fun initialse()
@@ -64,7 +72,8 @@ class MainActivity : AppCompatActivity() {
         register = findViewById<View>(R.id.RegisterText) as TextView
         progressbar = ProgressDialog(this)
 
-        auth = FirebaseAuth.getInstance()
+
+
 
         //check null
         forgotpass!!.setOnClickListener { startActivity(Intent(this, ForgotPassword::class.java)) }
@@ -84,7 +93,8 @@ class MainActivity : AppCompatActivity() {
             this.auth!!.signInWithEmailAndPassword(email!!, password!!).addOnCompleteListener(this, OnCompleteListener<AuthResult> { task ->
                 progressbar!!.hide()
                 if (task.isSuccessful) {
-                    updateUI()
+                    Toast.makeText(this, "Welcome to JoinGreen!", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this, AfterLogin::class.java))
                 } else {
                     Toast.makeText(this, "Error email and password", Toast.LENGTH_SHORT).show()
                 }
@@ -94,8 +104,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun updateUI() {
-        Toast.makeText(this, "Welcome to Eco Fun!", Toast.LENGTH_SHORT).show()
-        startActivity(Intent(this, AfterLogin::class.java))
+    private fun updateUI(currentUser: FirebaseUser?) {
+        if(currentUser!=null)
+        {
+            startActivity(Intent(this, AfterLogin::class.java))
+            finish()
+        }
+
     }
 }

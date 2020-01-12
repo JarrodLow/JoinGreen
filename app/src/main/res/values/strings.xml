@@ -16,4 +16,5 @@
     <string name="menu_reward">Reward</string>
     <string name="forgotPassword">Forgot Password</string>
     <string name="Logout">LogOut</string>
+    <string name="menu_attendance">Attendance</string>
 </resources>
