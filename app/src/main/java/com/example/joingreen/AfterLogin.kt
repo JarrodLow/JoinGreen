@@ -49,7 +49,7 @@ class AfterLogin : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_share,R.id.nav_event,R.id.nav_reward
+                R.id.nav_home, R.id.nav_event,R.id.nav_share,R.id.nav_reward
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)

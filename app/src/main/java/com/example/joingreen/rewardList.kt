@@ -26,14 +26,15 @@ class rewardList : AppCompatActivity() {
     lateinit var sharedPreferences : SharedPreferences
 
     var mTitle =
-        arrayOf("Facebook", "Whatsapp", "Twitter", "Instagram", "Youtube")
-    var mPoints = arrayOf("100", "200", "300", "400", "500")
+        arrayOf("Recycle Bag", "Aeon RM10 Voucher", "Stainless Steel Straw set", "McDonald RM10 Voucher", "Tupperware")
+    var mPoints = arrayOf("1000", "1500", "1500", "1500", "2000")
     var images = intArrayOf(
-        R.drawable.facebook,
-        R.drawable.whatsapp,
-        R.drawable.twitter,
-        R.drawable.instagram,
-        R.drawable.youtube
+        R.drawable.reward1,
+        R.drawable.reward2,
+        R.drawable.reward3,
+        R.drawable.reward4,
+        R.drawable.reward5
+
     )
     var mButton: Button? = null
     // so our images and other things are set in array

@@ -21,9 +21,9 @@
         android:id="@+id/nav_reward"
         android:name="com.example.joingreen.ui.event.RewardFragment"
         android:label="RewardFragment" />
-    <activity
+    <fragment
         android:id="@+id/nav_event"
-        android:name="com.example.joingreen.eventList"
-        android:label="event"
+        android:name="com.example.joingreen.ui.event.EventFragment"
+        android:label="Event"
         tools:layout="@layout/event" />
 </navigation>
