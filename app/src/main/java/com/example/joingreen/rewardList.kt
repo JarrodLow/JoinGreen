@@ -17,10 +17,17 @@ import android.content.Intent
 import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-
+import com.bumptech.glide.Glide
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 
 
 class rewardList : AppCompatActivity() {
+
+    //firebase
+    private var databaseReference: DatabaseReference? = null
+    private var database: FirebaseDatabase? = null
+    private var auth: FirebaseAuth? = null
 
     lateinit var rewardViewModel: RewardViewModel
     lateinit var sharedPreferences : SharedPreferences
@@ -42,12 +49,15 @@ class rewardList : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.reward)
+
         val listView:ListView = findViewById(R.id.rewardListView)
         // now create an adapter class
         mButton = findViewById(R.id.retrieveBtn)
 
         Log.d("rewardList", "onCreate")
         //Initialize the reward ViewModel
+
+
 
         rewardViewModel = ViewModelProviders.of(this).get(RewardViewModel::class.java)
 
@@ -95,17 +105,34 @@ class rewardList : AppCompatActivity() {
             myTitle.text = rTitle[position]
             myDescription.text = rDescription[position]
             myButton.setOnClickListener {
+                // database
+                database = FirebaseDatabase.getInstance()
+                databaseReference = database!!.reference!!.child("/users")
+                auth = FirebaseAuth.getInstance()
+                val User = auth!!.currentUser
+
+                val UserReference = databaseReference!!.child(User!!.uid)
+
                 var rewardPoint:Int= Integer.parseInt(mPoints[position])
                 val ttlRewardPoint:TextView=findViewById(R.id.totalReward)
                 var str:String=ttlRewardPoint.getText().toString()
                 var totalRewardPoint:Int=Integer.parseInt(str)
-                if(rewardPoint.compareTo(totalRewardPoint)<0 ||rewardPoint.compareTo(totalRewardPoint)==0)
-                {
+                if(rewardPoint.compareTo(totalRewardPoint)<0 ||rewardPoint.compareTo(totalRewardPoint)==0) {
                     //totalRewardPoint=totalRewardPoint-rewardPoint
                     rewardViewModel.usePoints(rewardPoint)
                     ttlRewardPoint.setText(rewardViewModel.totalRewardPoints.toString())
-                    Toast.makeText(this@rewardList, mTitle[position]+" reward claimed", Toast.LENGTH_SHORT)
-                        .show()
+
+
+                    UserReference!!.child("creditpoint").setValue(ttlRewardPoint.text.toString())
+                        .addOnSuccessListener {
+                            Toast.makeText(
+                                this@rewardList,
+                                mTitle[position] + " reward claimed",
+                                Toast.LENGTH_SHORT
+                            )
+                                .show()
+                        }
+
 
                 }
                 else
@@ -168,4 +195,5 @@ class rewardList : AppCompatActivity() {
         onBackPressed()
         return true
     }
+
 }

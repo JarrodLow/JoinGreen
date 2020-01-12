@@ -1,28 +1,29 @@
 package com.example.joingreen
 
-import android.media.Image
-import android.net.Uri
+import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.drawerlayout.widget.DrawerLayout
+import com.bumptech.glide.Glide
 import com.google.android.material.navigation.NavigationView
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
-import android.view.Menu
-import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import com.bumptech.glide.Glide
+
 
 class AfterLogin : AppCompatActivity() {
+
 
     //firebase
     private var databaseReference: DatabaseReference? = null
@@ -37,11 +38,7 @@ class AfterLogin : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-//        val fab: FloatingActionButton? = findViewById(R.id.fab)
-//        fab!!.setOnClickListener { view ->
-//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                .setAction("Action", null).show()
-//        }
+
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
@@ -49,7 +46,7 @@ class AfterLogin : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_event,R.id.nav_share,R.id.nav_reward
+                R.id.nav_home, R.id.nav_event,R.id.nav_attendance,R.id.nav_reward,R.id.nav_logout
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -60,7 +57,6 @@ class AfterLogin : AppCompatActivity() {
         val profile : ImageView = headerView.findViewById(R.id.imageView)
         val currentUserName : TextView = headerView.findViewById(R.id.profileUser)
         val currentUserEmail : TextView = headerView.findViewById(R.id.profileEmail)
-
 
         database = FirebaseDatabase.getInstance()
         databaseReference = database!!.reference!!.child("/users")
@@ -80,16 +76,24 @@ class AfterLogin : AppCompatActivity() {
 
         currentUserEmail!!.text = User.email
 
+
     }
+
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
+
         return true
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
+
+
 }
