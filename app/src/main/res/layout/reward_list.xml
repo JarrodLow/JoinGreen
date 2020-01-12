@@ -64,13 +64,18 @@
         <Button
             android:id="@+id/retrieveBtn"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="34dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="62dp"
             android:layout_marginLeft="280dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="28dp"
+            android:layout_toEndOf="@+id/rewardDescription"
             android:background="#4CAF50"
-            android:textColor="#FFFFFF"
             android:text="Claim"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textColor="#FFFFFF" />
 
     </RelativeLayout>
 </LinearLayout>
