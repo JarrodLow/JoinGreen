@@ -11,11 +11,7 @@
         android:label="@string/menu_profile"
         tools:layout="@layout/fragment_home" />
 
-    <fragment
-        android:id="@+id/nav_share"
-        android:name="com.example.joingreen.ui.share.ShareFragment"
-        android:label="@string/menu_share"
-        tools:layout="@layout/fragment_share" />
+
 
     <fragment
         android:id="@+id/nav_reward"
@@ -26,4 +22,15 @@
         android:name="com.example.joingreen.ui.event.EventFragment"
         android:label="Event"
         tools:layout="@layout/event" />
+
+    <fragment
+        android:id="@+id/nav_attendance"
+        android:name="com.example.joingreen.ui.Attandance"
+        android:label="Event Attandance"
+        tools:layout="@layout/attendance" />
+    <fragment
+        android:id="@+id/nav_logout"
+        android:name="com.example.joingreen.ui.LogOut.LogOutFragment"
+        android:label="Log Out"
+        tools.layout="@layout/fragment_logout"/>
 </navigation>

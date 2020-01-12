@@ -25,12 +25,7 @@ class ForgotPassword : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.forgetpassword)
 
-        val actionbar = supportActionBar
-        //set actionbar title
-        actionbar!!.title = "Forget Password"
-        //set back button
-        actionbar.setDisplayHomeAsUpEnabled(true)
-        actionbar.setDisplayHomeAsUpEnabled(true)
+
         initialise()
     }
 
