@@ -1,17 +1,17 @@
 package com.example.joingreen.ui.event
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
-import android.widget.EditText
-import android.widget.ListView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.joingreen.R
 import com.example.joingreen.eventClass
+import com.example.joingreen.eventList
+import com.example.joingreen.rewardList
 import com.example.joingreen.ui.home.HomeFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -72,10 +72,11 @@ class EventFragment : Fragment() {
 
             val createEventDB : DatabaseReference= FirebaseDatabase.getInstance().getReference("Event")
             val eventId=createEventDB.push().key.toString()
-            if(username=="" || eventName=="" || eventDate=="" || eventStartTime=="" || eventEndTime=="" || eventLocation==""){
+           /* if(username=="" || eventName=="" || eventDate=="" || eventStartTime=="" || eventEndTime=="" || eventLocation==""){
                 Toast.makeText(this.activity,"Please fill in all required fields", Toast.LENGTH_LONG).show()
 
             }
+            else{*/
 
             //save all data into event object
             val newEvent= eventClass(eventId,username,eventName,eventDate,eventStartTime,eventEndTime,eventLocation,attendance)
@@ -84,12 +85,16 @@ class EventFragment : Fragment() {
             createEventDB.child(eventId).setValue(newEvent).addOnCompleteListener{
                 Toast.makeText(this.activity,"Event has been created successfully", Toast.LENGTH_LONG).show()
             }
+            //}
         }
 
+        val viewEventButton:Button=view.findViewById(R.id.viewEventListButton)
+        viewEventButton.setOnClickListener{
+            val intent = Intent(context, eventList::class.java)
+
+            startActivity(intent)
+        }
     }
-
-
-
 
 
     }

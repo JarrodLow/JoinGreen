@@ -5,18 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingTop="50dp"
     android:gravity="center"
-    tools:context=".rewardList"
->
-
-
-
-
+    tools:context=".rewardList">
 
     <EditText
         android:id="@+id/eventName"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="40dp"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginBottom="670dp"
@@ -27,10 +23,11 @@
         android:hint="Event Name"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"/>
 
-
-    <EditText
+    <TextView
         android:id="@+id/eventDate"
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -46,9 +43,9 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintTop_toBottomOf="@+id/eventName"
         tools:ignore="MissingConstraints"
-        android:inputType="date"/>
+        android:textSize="18sp"/>
 
-    <EditText
+    <TextView
         android:id="@+id/startTime"
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -60,14 +57,14 @@
         android:hint="Start Time"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/eventDate"
-        tools:ignore="MissingConstraints"
-        android:inputType="numberDecimal"/>
+        tools:ignore="MissingConstraints" />
 
-    <EditText
+    <TextView
         android:id="@+id/endTime"
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -75,10 +72,10 @@
         android:layout_marginRight="20dp"
         android:background="@drawable/custom_edit_text_bg"
         android:drawableLeft="@drawable/ic_enddate"
-        android:inputType="numberDecimal"
         android:hint="End Time"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
@@ -115,6 +112,14 @@
         android:layout_marginTop="100dp"
         android:textColor="#FFFFFF"
         app:layout_constraintTop_toBottomOf="@+id/location"/>
+
+    <Button
+        android:id="@+id/viewEventListButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteY="467dp"
+        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
