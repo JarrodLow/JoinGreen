@@ -1,44 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     tools:context=".rewardList" >
-
-
-    <ImageView
-        android:id="@+id/addPic"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="500dp"
-        android:layout_marginTop="20dp"
-        android:background="#B9F3B9"
-        app:srcCompat="@drawable/ic_add_a_photo_green_24dp"
-        tools:layout_editor_absoluteX="11dp"
-        tools:layout_editor_absoluteY="96dp"
-        tools:ignore="MissingConstraints,VectorDrawableCompat" />
 
     <EditText
         android:id="@+id/eventName"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginBottom="670dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/custom_edit_text_bg"
         android:drawableLeft="@drawable/ic_eventname"
         android:inputType="textPersonName"
-        android:text="Event Name"
+        android:hint="Event Name"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addPic"
         tools:ignore="MissingConstraints" />
 
     <EditText
@@ -55,9 +40,9 @@
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/eventName"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        android:inputType="date"/>
 
     <EditText
         android:id="@+id/startTime"
@@ -68,14 +53,15 @@
         android:layout_marginRight="20dp"
         android:background="@drawable/custom_edit_text_bg"
         android:drawableLeft="@drawable/ic_startdate"
-        android:text="Start Time"
+        android:hint="Start Time"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/eventDate"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        android:inputType="numberDecimal"/>
 
     <EditText
         android:id="@+id/endTime"
@@ -85,15 +71,16 @@
         android:layout_marginRight="20dp"
         android:background="@drawable/custom_edit_text_bg"
         android:drawableLeft="@drawable/ic_enddate"
-        android:inputType="textPersonName"
-        android:text="End Time"
+        android:inputType="numberDecimal"
+        android:hint="End Time"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/startTime"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        />
 
     <EditText
         android:id="@+id/location"
@@ -105,7 +92,7 @@
         android:background="@drawable/custom_edit_text_bg"
         android:drawableLeft="@drawable/ic_location"
         android:inputType="textPersonName"
-        android:text="Location"
+        android:hint="Location"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"

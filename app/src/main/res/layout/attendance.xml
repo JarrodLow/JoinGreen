@@ -10,7 +10,7 @@
         android:id="@+id/attdText"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:hint="Input Attendace Code Here"
+        android:hint="Input Attendance Code Here"
         android:inputType="numberDecimal"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -31,15 +31,6 @@
         app:layout_constraintTop_toBottomOf="@+id/attdText"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="60dp" />
-
-    <TextView
-        android:id="@+id/textViewAttendance"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="114dp"
-        tools:layout_editor_absoluteY="267dp"
-        tools:ignore="MissingConstraints" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

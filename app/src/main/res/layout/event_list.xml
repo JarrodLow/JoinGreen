@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,43 +14,73 @@
         android:padding="15dp"
         android:background="#FFFFFF">
 
-        <ImageView
-            android:id="@+id/eventImageView"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_weight="0.11"
-            android:background="#B9F3B9"
-            app:srcCompat="@drawable/ic_add_a_photo_green_24dp"
-            tools:ignore="VectorDrawableCompat" />
 
         <TextView
             android:id="@+id/eventName"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Event Name"
-            android:layout_below="@+id/eventImageView"
             android:layout_marginTop="20dp"
             android:textColor="#000000"
             android:textSize="22dp"
             android:textStyle="bold"/>
 
         <TextView
-            android:id="@+id/eventDescription"
-            android:layout_width="wrap_content"
+            android:id="@+id/eventCreator"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/eventName"
             android:layout_marginTop="10dp"
             android:layout_weight="1"
-            android:hint="Event Description"
-            android:textColor="#000000"
-            app:layout_constraintTop_toBottomOf="@+id/eventName" />
+            android:hint="Event Organiser"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/eventDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/eventCreator"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:hint="Event Date"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/eventTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/eventDate"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:hint="Event Time"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Location"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/eventTime"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/attdCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Attendance Code"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/location"
+            android:textColor="#000000" />
         <Button
             android:id="@+id/joinBtn"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/eventImageView"
-            android:layout_toRightOf="@+id/eventName"
-            android:layout_marginTop="20dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/location"
+            android:layout_toRightOf="@+id/attdCode"
+            android:layout_marginTop="10dp"
             android:layout_marginLeft="200dp"
             android:background="#4CAF50"
             android:textColor="#FFFFFF"

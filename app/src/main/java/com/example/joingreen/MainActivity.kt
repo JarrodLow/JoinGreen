@@ -1,6 +1,9 @@
 package com.example.joingreen
 
+import android.app.ProgressDialog
+import android.content.Intent
 import android.os.Bundle
+import android.text.TextUtils
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import androidx.navigation.findNavController
@@ -13,45 +16,86 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
+import android.view.View
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.AuthResult
+import com.google.firebase.auth.FirebaseAuth
+import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
+    //Declaration for other views
+    //User db email and pass
+    private var email: String? = null
+    private var password: String? = null
+
+    //other buttons and etc
+    private var inputEmail :EditText? =null
+    private var inputPass : EditText?=null
+    private var loginbtn : Button? =null
+    private var forgotpass :TextView? =null
+    private var register : TextView? =null
+
+    //progress dialog to show login succcess or not
+    private var progressbar :ProgressDialog? =null
+
+    //Firebase auth
+    private var auth : FirebaseAuth? =null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
+        setContentView(R.layout.login)
 
-        val fab: FloatingActionButton = findViewById(R.id.fab)
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+        initialse()
+
+
+    }
+
+    private fun initialse()
+    {
+        forgotpass = findViewById<View>(R.id.forgetPassword) as TextView
+        inputEmail = findViewById<View>(R.id.userName) as EditText
+        inputPass = findViewById<View>(R.id.password) as EditText
+        loginbtn = findViewById<View>(R.id.LogIn) as Button
+        register = findViewById<View>(R.id.RegisterText) as TextView
+        progressbar = ProgressDialog(this)
+
+        auth = FirebaseAuth.getInstance()
+
+        //check null
+        forgotpass!!.setOnClickListener { startActivity(Intent(this, ForgotPassword::class.java)) }
+
+        loginbtn!!.setOnClickListener { loginUser() }
+
+        register!!.setOnClickListener { startActivity(Intent(this, RegisterUser::class.java)) }
+    }
+    private fun loginUser(){
+        email = inputEmail?.text.toString()
+        password = inputPass?.text.toString()
+
+        if (!TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)) {
+            progressbar!!.setMessage("Logging In...")
+            progressbar!!.show()
+
+            this.auth!!.signInWithEmailAndPassword(email!!, password!!).addOnCompleteListener(this, OnCompleteListener<AuthResult> { task ->
+                progressbar!!.hide()
+                if (task.isSuccessful) {
+                    updateUI()
+                } else {
+                    Toast.makeText(this, "Error email and password", Toast.LENGTH_SHORT).show()
+                }
+            })
+        } else {
+            Toast.makeText(this, "Please fill up the credentials", Toast.LENGTH_SHORT).show()
         }
-        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
-        val navView: NavigationView = findViewById(R.id.nav_view)
-        val navController = findNavController(R.id.nav_host_fragment)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow,
-                R.id.nav_tools, R.id.nav_share, R.id.nav_send,R.id.nav_event,R.id.nav_reward
-            ), drawerLayout
-        )
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.main, menu)
-        return true
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment)
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    private fun updateUI() {
+        Toast.makeText(this, "Welcome to Eco Fun!", Toast.LENGTH_SHORT).show()
+        startActivity(Intent(this, AfterLogin::class.java))
     }
 }
