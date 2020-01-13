@@ -15,19 +15,9 @@
             android:title="@string/menu_event" />
 
         <item
-            android:id="@+id/nav_attendance"
-            android:icon="@drawable/ic_menu_attendance"
-            android:title="@string/menu_attendance" />
-
-        <item
             android:id="@+id/nav_reward"
             android:icon="@drawable/ic_menu_reward"
             android:title="@string/menu_reward" />
-
-        <item
-            android:id="@+id/nav_language"
-            android:icon="@drawable/ic_language_black_24dp"
-            android:title="@string/menu_language"/>
 
         <item
             android:id="@+id/nav_logout"
