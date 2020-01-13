@@ -107,18 +107,27 @@
         android:layout_height="40dp"
         android:background="@color/colorPrimary"
         android:text="Create"
-        android:layout_marginRight="40dp"
-        android:layout_marginLeft="40dp"
+        android:layout_marginRight="250dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="100dp"
         android:textColor="#FFFFFF"
-        app:layout_constraintTop_toBottomOf="@+id/location"/>
+        app:layout_constraintTop_toBottomOf="@+id/location"
+      tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/viewEventListButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteY="467dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#27D1AB"
+        android:text="Display Event List"
+        android:textColor="#FFFFFF"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="100dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        app:layout_constraintLeft_toRightOf="@+id/createEvent"
+        app:layout_constraintTop_toBottomOf="@+id/location"
         tools:ignore="MissingConstraints" />
 
 
