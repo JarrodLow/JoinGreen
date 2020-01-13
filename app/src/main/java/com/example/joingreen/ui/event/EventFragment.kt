@@ -59,7 +59,7 @@ class EventFragment : Fragment() {
             val eventEndTime = endTime.text.toString()
             val eventLocation = location.text.toString()
             val attendance = (100000..999999).random()
-
+            val ecreator=eventCreator.text.toString()
 
             //link firebase
 
@@ -115,7 +115,8 @@ class EventFragment : Fragment() {
             //}
         }
 
-
+        val viewEventButton: Button = view.findViewById(R.id.viewEventListButton)
+        viewEventButton.setOnClickListener {
             val intent = Intent(context, eventList::class.java)
 
             startActivity(intent)
@@ -139,4 +140,4 @@ class EventFragment : Fragment() {
         dpd.show()
     }*/
 
-
+}
