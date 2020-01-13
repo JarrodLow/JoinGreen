@@ -116,7 +116,7 @@ class EventFragment : Fragment() {
         }
 
         val viewEventButton: Button = view.findViewById(R.id.viewEventListButton)
-     /
+
     }
 
 /*
