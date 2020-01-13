@@ -92,7 +92,7 @@ class EventFragment : Fragment() {
             //save all data into event object
             val newEvent = eventClass(
 
-                attendance ,
+                attendance,
                 username,
                 eventDate,
                 eventEndTime,
@@ -115,11 +115,8 @@ class EventFragment : Fragment() {
             //}
         }
 
-
-            val intent = Intent(context, eventList::class.java)
-
-            startActivity(intent)
-        }
+        val viewEventButton: Button = view.findViewById(R.id.viewEventListButton)
+     /
     }
 
 /*
@@ -138,5 +135,6 @@ class EventFragment : Fragment() {
             }, evYear, evMonth, evDay)
         dpd.show()
     }*/
-
 }
+
+
