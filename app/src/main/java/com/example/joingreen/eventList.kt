@@ -158,10 +158,19 @@ class eventList : AppCompatActivity() {
                 }
 
         })
-
+        val actionbar = supportActionBar
+        //set actionbar title
+        actionbar!!.title = "Event List"
+        //set back button
+        actionbar.setDisplayHomeAsUpEnabled(true)
+        actionbar.setDisplayHomeAsUpEnabled(true)
 
 
         // so item click is done now check list view
+    }
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
 
