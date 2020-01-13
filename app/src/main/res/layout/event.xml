@@ -105,31 +105,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/endTime"
         tools:ignore="MissingConstraints" />
-  <Button
+
+    <Button
         android:id="@+id/createEvent"
-        android:layout_width="match_parent"
+        android:layout_width="145dp"
         android:layout_height="40dp"
+        android:layout_marginTop="100dp"
         android:background="@color/colorPrimary"
         android:text="Create"
-        android:layout_marginRight="250dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="100dp"
         android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="@+id/location"
         app:layout_constraintTop_toBottomOf="@+id/location"
-      tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/viewEventListButton"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="40dp"
-        android:background="#27D1AB"
-        android:text="Display Event List"
-        android:textColor="#FFFFFF"
-        android:layout_marginRight="40dp"
         android:layout_marginLeft="200dp"
         android:layout_marginTop="100dp"
+        android:background="#27D1AB"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
+        android:text="Display Event List"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="@+id/location"
         app:layout_constraintLeft_toRightOf="@+id/createEvent"
         app:layout_constraintTop_toBottomOf="@+id/location"
         tools:ignore="MissingConstraints" />
