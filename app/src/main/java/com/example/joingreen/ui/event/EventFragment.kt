@@ -92,7 +92,7 @@ class EventFragment : Fragment() {
             //save all data into event object
             val newEvent = eventClass(
 
-                attendance ,
+                attendance,
                 username,
                 eventDate,
                 eventEndTime,
@@ -121,6 +121,7 @@ class EventFragment : Fragment() {
 
             startActivity(intent)
         }
+
     }
 
 /*

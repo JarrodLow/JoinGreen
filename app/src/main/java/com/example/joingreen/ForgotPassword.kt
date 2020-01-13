@@ -24,7 +24,9 @@ class ForgotPassword : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.forgetpassword)
-
+        val actionbar = supportActionBar
+        //set actionbar title
+        actionbar!!.title = "Forgot Password"
 
         initialise()
     }
