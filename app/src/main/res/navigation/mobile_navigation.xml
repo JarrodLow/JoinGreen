@@ -32,4 +32,8 @@
         android:name="com.example.joingreen.ui.LogOut.LogOutFragment"
         android:label="Log Out"
         tools.layout="@layout/fragment_logout"/>
+    <fragment
+        android:id="@+id/nav_info"
+        android:name="com.example.joingreen.ui.info.InfoFragment"
+        android:label="Info" />
 </navigation>
