@@ -53,35 +53,29 @@ class EventFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        eventDate.setOnClickListener{
+        eventDate.setOnClickListener {
 
             val cal = Calendar.getInstance()
 
             //get current
             val clYear = cal.get(Calendar.YEAR)
-            val clMonth = cal.get(Calendar.MONTH )
+            val clMonth = cal.get(Calendar.MONTH)
             val clDay = cal.get(Calendar.DAY_OF_MONTH)
 
             val dpd =
                 this.activity?.let { it1 ->
-                    DatePickerDialog(it1, DatePickerDialog.OnDateSetListener { view, year, month, day ->
-                        eventDate.setText(day.toString() + "-" + (month+1).toString() + "-" + year.toString())
+                    DatePickerDialog(
+                        it1,
+                        DatePickerDialog.OnDateSetListener { view, year, month, day ->
+                            eventDate.setText(day.toString() + "-" + (month + 1).toString() + "-" + year.toString())
 
-                    }, clYear, clMonth, clDay)
+                        },
+                        clYear,
+                        clMonth,
+                        clDay
+                    )
                 }
             dpd?.show()
-        }
-
-        createEvent.setOnClickListener {
-            val eventName = eventName.text.toString()
-            val eventDate = eventDate.text.toString()
-            val eventStartTime = startTime.text.toString()
-            val eventEndTime = endTime.text.toString()
-            val eventLocation = location.text.toString()
-            val attendance = (100000..999999).random()
-            val ecreator=eventCreator.text.toString()
-
-
             //link firebase
 
             var database: DatabaseReference =
@@ -99,51 +93,70 @@ class EventFragment : Fragment() {
 
                 override fun onCancelled(databaseError: DatabaseError) {}
             })
+        }
+
+        createEvent.setOnClickListener {
+            val eventName = eventName.text.toString()
+            val eventDate = eventDate.text.toString()
+            val eventStartTime = startTime.text.toString()
+            val eventEndTime = endTime.text.toString()
+            val eventLocation = location.text.toString()
+            val attendance = (100000..999999).random()
 
 
             val createEventDB: DatabaseReference =
                 FirebaseDatabase.getInstance().getReference("Event")
             val eventId = createEventDB.push().key.toString()
-            /* if(username=="" || eventName=="" || eventDate=="" || eventStartTime=="" || eventEndTime=="" || eventLocation==""){
-                Toast.makeText(this.activity,"Please fill in all required fields", Toast.LENGTH_LONG).show()
-
-            }
-            else{*/
-
-            //save all data into event object
-            val newEvent = eventClass(
-
-                attendance,
-                username,
-                eventDate,
-                eventEndTime,
-                eventId,
-                eventName,
-                eventLocation,
-                eventStartTime
-
-
-            )
-
-            //add data into database
-            createEventDB.child(eventId).setValue(newEvent).addOnCompleteListener {
+            if (username == "" || eventName == "" || eventDate == "" || eventStartTime == "" || eventEndTime == "" || eventLocation == "") {
                 Toast.makeText(
                     this.activity,
-                    "Event has been created successfully",
+                    "Please fill in all required fields",
                     Toast.LENGTH_LONG
                 ).show()
+
+            }
+
+
+            else {
+                //save all data into event object
+                val newEvent = eventClass(
+
+                    attendance,
+                    username,
+                    eventDate,
+                    eventEndTime,
+                    eventId,
+                    eventName,
+                    eventLocation,
+                    eventStartTime
+
+
+                )
+
+                //add data into database
+                createEventDB.child(eventId).setValue(newEvent).addOnCompleteListener {
+                    Toast.makeText(
+                        this.activity,
+                        "Event has been created successfully",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
             }
             //}
-        }
 
+
+
+
+
+        }
         val viewEventButton: Button = view.findViewById(R.id.viewEventListButton)
         viewEventButton.setOnClickListener {
             val intent = Intent(context, eventList::class.java)
 
             startActivity(intent)
         }
-
     }
+}
 
 /*
     private fun eventDate(view: View) {
@@ -162,4 +175,4 @@ class EventFragment : Fragment() {
         dpd.show()
     }*/
 
-}
+
