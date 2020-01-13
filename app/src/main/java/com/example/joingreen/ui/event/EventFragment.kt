@@ -145,14 +145,15 @@ class EventFragment : Fragment() {
             //}
 
 
-            val viewEventButton: Button = view.findViewById(R.id.viewEventListButton)
-            viewEventButton.setOnClickListener {
-                val intent = Intent(context, eventList::class.java)
-
-                startActivity(intent)
-            }
 
 
+
+        }
+        val viewEventButton: Button = view.findViewById(R.id.viewEventListButton)
+        viewEventButton.setOnClickListener {
+            val intent = Intent(context, eventList::class.java)
+
+            startActivity(intent)
         }
     }
 }
