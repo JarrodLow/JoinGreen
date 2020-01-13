@@ -21,15 +21,4 @@
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="86dp" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        app:backgroundTint="#488F49"
-        app:layout_constraintTop_toBottomOf="@+id/eventListView"
-        app:srcCompat="@drawable/ic_add"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="355dp" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

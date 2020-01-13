@@ -52,6 +52,26 @@ class EventFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        eventDate.setOnClickListener{
+
+            val cal = Calendar.getInstance()
+
+            //get current
+            val clYear = cal.get(Calendar.YEAR)
+            val clMonth = cal.get(Calendar.MONTH )
+            val clDay = cal.get(Calendar.DAY_OF_MONTH)
+
+            val dpd =
+                this.activity?.let { it1 ->
+                    DatePickerDialog(it1, DatePickerDialog.OnDateSetListener { view, year, month, day ->
+                        eventDate.setText(day.toString() + "-" + (month+1).toString() + "-" + year.toString())
+
+                    }, clYear, clMonth, clDay)
+                }
+            dpd?.show()
+        }
+
         createEvent.setOnClickListener {
             val eventName = eventName.text.toString()
             val eventDate = eventDate.text.toString()
@@ -60,6 +80,7 @@ class EventFragment : Fragment() {
             val eventLocation = location.text.toString()
             val attendance = (100000..999999).random()
             val ecreator=eventCreator.text.toString()
+
 
             //link firebase
 

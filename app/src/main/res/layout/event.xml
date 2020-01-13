@@ -45,7 +45,7 @@
         tools:ignore="MissingConstraints"
         android:textSize="18sp"/>
 
-    <TextView
+    <EditText
         android:id="@+id/startTime"
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -54,17 +54,19 @@
         android:layout_marginRight="20dp"
         android:background="@drawable/custom_edit_text_bg"
         android:drawableLeft="@drawable/ic_startdate"
-        android:hint="Start Time"
+        android:hint="Start Time (Eg. 1:00pm = 1300)"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
+        android:inputType="numberDecimal"
+        android:maxLength="4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/eventDate"
         tools:ignore="MissingConstraints" />
 
-    <TextView
+    <EditText
         android:id="@+id/endTime"
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -72,10 +74,12 @@
         android:layout_marginRight="20dp"
         android:background="@drawable/custom_edit_text_bg"
         android:drawableLeft="@drawable/ic_enddate"
-        android:hint="End Time"
+        android:hint="End Time (Eg. 1:00pm = 1300)"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
+        android:inputType="numberDecimal"
+        android:maxLength="4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
