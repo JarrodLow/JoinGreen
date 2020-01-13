@@ -3,6 +3,7 @@ package com.example.joingreen
 import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import android.text.TextUtils
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -61,6 +62,10 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
         val currentUser = auth!!.currentUser
         updateUI(currentUser)
+    }
+    override fun onBackPressed() {
+        moveTaskToBack(false)
+
     }
 
     private fun initialse()
