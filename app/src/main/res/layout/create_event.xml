@@ -8,7 +8,7 @@
     android:gravity="center"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    tools:context=".eventList" >
+    tools:context=".rewardList" >
 
 
     <ListView
@@ -16,6 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="30pt"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="86dp" />
@@ -24,19 +25,11 @@
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
+        android:layout_marginTop="12dp"
         app:backgroundTint="#488F49"
+        app:layout_constraintTop_toBottomOf="@+id/eventListView"
         app:srcCompat="@drawable/ic_add"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/haha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_marginTop="10dp"
-        android:textColor="#000000"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="355dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
